@@ -16,11 +16,34 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
+    String str_addUpToFirst = '''
+    int addUpToFirst(n) {
+      var total = 0;
+      for (var i = 0; i <= n; i++) {
+        total += i;
+      }
+      return total;
+    }
+    ''';
+    int addUpToFirst(n) {
+      var total = 0;
+      for (var i = 0; i <= n; i++) {
+        total += i;
+      }
+      return total;
+    }
+    Duration duration = Duration(microseconds: 0);
+
     return Scaffold(
       body: Column(
         children: [
@@ -36,7 +59,16 @@ class MyHomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                          setState(() {
+                            Stopwatch stopwatch = new Stopwatch()..start();
+                            addUpToFirst(10000000);
+                            duration = stopwatch.elapsed;
+                          });
+                          print(
+                              'addUpToFirst() executed in ${duration}');
+                        },
                         child: Text("addUpToFirst"),
                       ),
                       ElevatedButton(
@@ -49,8 +81,8 @@ class MyHomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(),
-                          width:50,
+                          decoration: BoxDecoration(),
+                          width: 50,
                           child: TextField()),
                       ElevatedButton(
                         onPressed: () {},
@@ -81,6 +113,7 @@ class MyHomePage extends StatelessWidget {
                                 color: Colors.yellow[100],
                                 width: constraints.maxWidth * 0.9,
                                 height: constraints.maxHeight * 0.5,
+                                child: Text(str_addUpToFirst),
                               );
                             },
                           ),
@@ -91,6 +124,7 @@ class MyHomePage extends StatelessWidget {
                   Expanded(
                     child: Container(
                       color: Colors.white,
+                      child: Text('$duration'),
                     ),
                   ),
                 ],
