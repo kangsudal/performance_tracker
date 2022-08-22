@@ -24,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Duration duration = Duration(microseconds: 0);
   @override
   Widget build(BuildContext context) {
     String str_addUpToFirst = '''
@@ -42,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
       }
       return total;
     }
-    Duration duration = Duration(microseconds: 0);
 
     return Scaffold(
       body: Column(
