@@ -32,6 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   List addUpToFirstResultList = [];
   List addUpToSecondResultList = [];
 
+  int n=0;
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Subject subject = Subject();
@@ -76,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Container(
                         width: 100,
                         child: TextField(
+                          controller: controller,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             fillColor: Colors.white,
@@ -90,11 +94,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(width: 10,),
                       ElevatedButton(
                         onPressed: () {
+                          n = int.parse(controller.text);
                           switch (_index) {
                             case 0:
                               //하얀색 Container 속 텍스트 변화
                               Stopwatch stopwatch = new Stopwatch()..start();
-                              subject.addUpToFirst(10000000);
+                              subject.addUpToFirst(n);
                               setState(() {
                                 duration = stopwatch.elapsed;
                                 addUpToFirstResultList.add(duration);
@@ -103,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             case 1:
                               //하얀색 Container 속 텍스트 변화
                               Stopwatch stopwatch = new Stopwatch()..start();
-                              subject.addUpToSecond(10000);
+                              subject.addUpToSecond(n);
                               setState(() {
                                 duration = stopwatch.elapsed;
                                 addUpToSecondResultList.add(duration);
@@ -159,7 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                       child: Column(
                         children: [
-                          Text('$duration'),
+                          Text('n:$n'),
+                          Text('duration:$duration'),
                           Text(addUpToFirstResultList.toString()),
                           Text(addUpToSecondResultList.toString()),
                         ],
