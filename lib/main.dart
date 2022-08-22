@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:performance_tracker/model/subject.dart';
 
 void main() {
@@ -73,9 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                          decoration: BoxDecoration(),
-                          width: 50,
-                          child: TextField()),
+                        width: 100,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.white,
+                            filled: true,
+                          ),
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 10,),
                       ElevatedButton(
                         onPressed: () {
                           switch (_index) {
@@ -150,7 +162,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           Text('$duration'),
                           Text(addUpToFirstResultList.toString()),
                           Text(addUpToSecondResultList.toString()),
-
                         ],
                       ),
                     ),
