@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:performance_tracker/model/subject.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,24 +26,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Duration duration = Duration(microseconds: 0);
+  int _index = 0;
+
   @override
   Widget build(BuildContext context) {
-    String str_addUpToFirst = '''
-    int addUpToFirst(n) {
-      var total = 0;
-      for (var i = 0; i <= n; i++) {
-        total += i;
-      }
-      return total;
-    }
-    ''';
-    int addUpToFirst(n) {
-      var total = 0;
-      for (var i = 0; i <= n; i++) {
-        total += i;
-      }
-      return total;
-    }
+    Subject subject = Subject();
 
     return Scaffold(
       body: Column(
@@ -60,19 +48,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-
                           setState(() {
+                            //하얀색 Container 속 텍스트 변화
                             Stopwatch stopwatch = new Stopwatch()..start();
-                            addUpToFirst(10000000);
+                            subject.addUpToFirst(10000000);
                             duration = stopwatch.elapsed;
+                            //노란색 container 속 텍스트 변화
+                            _index = 0;
                           });
-                          print(
-                              'addUpToFirst() executed in ${duration}');
+                          print('addUpToFirst() executed in ${duration}');
                         },
                         child: Text("addUpToFirst"),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            //하얀색 Container 속 텍스트 변화
+                            Stopwatch stopwatch = new Stopwatch()..start();
+                            subject.addUpToSecond(10000);
+                            duration = stopwatch.elapsed;
+                            //노란색 container 속 텍스트 변화
+                            _index = 1;
+                          });
+                          print('addUpToFirst() executed in ${duration}');
+                        },
                         child: Text("addUpToSecond"),
                       ),
                     ],
@@ -113,7 +112,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Colors.yellow[100],
                                 width: constraints.maxWidth * 0.9,
                                 height: constraints.maxHeight * 0.5,
-                                child: Text(str_addUpToFirst),
+                                child: IndexedStack(
+                                  index: _index,
+                                  children: [
+                                    Text(subject.str_addUpToFirst),
+                                    Text(subject.str_addUpToSecond),
+                                  ],
+                                ),
                               );
                             },
                           ),
