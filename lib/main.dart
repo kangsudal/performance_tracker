@@ -28,6 +28,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Duration duration = Duration(microseconds: 0);
   int _index = 0;
 
+  List addUpToFirstResultList = [];
+  List addUpToSecondResultList = [];
+
   @override
   Widget build(BuildContext context) {
     Subject subject = Subject();
@@ -52,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             //노란색 container 속 텍스트 변화
                             _index = 0;
                           });
-                          print('addUpToFirst() executed in ${duration}');
                         },
                         child: Text("addUpToFirst"),
                       ),
@@ -62,7 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             //노란색 container 속 텍스트 변화
                             _index = 1;
                           });
-                          print('addUpToFirst() executed in ${duration}');
                         },
                         child: Text("addUpToSecond"),
                       ),
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               subject.addUpToFirst(10000000);
                               setState(() {
                                 duration = stopwatch.elapsed;
+                                addUpToFirstResultList.add(duration);
                               });
                               break;
                             case 1:
@@ -92,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               subject.addUpToSecond(10000);
                               setState(() {
                                 duration = stopwatch.elapsed;
+                                addUpToSecondResultList.add(duration);
                               });
                               break;
                             default:
@@ -142,7 +145,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: Container(
                       color: Colors.white,
-                      child: Text('$duration'),
+                      child: Column(
+                        children: [
+                          Text('$duration'),
+                          Text(addUpToFirstResultList.toString()),
+                          Text(addUpToSecondResultList.toString()),
+
+                        ],
+                      ),
                     ),
                   ),
                 ],
