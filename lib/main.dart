@@ -49,10 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            //하얀색 Container 속 텍스트 변화
-                            Stopwatch stopwatch = new Stopwatch()..start();
-                            subject.addUpToFirst(10000000);
-                            duration = stopwatch.elapsed;
                             //노란색 container 속 텍스트 변화
                             _index = 0;
                           });
@@ -63,10 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            //하얀색 Container 속 텍스트 변화
-                            Stopwatch stopwatch = new Stopwatch()..start();
-                            subject.addUpToSecond(10000);
-                            duration = stopwatch.elapsed;
                             //노란색 container 속 텍스트 변화
                             _index = 1;
                           });
@@ -84,7 +76,28 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 50,
                           child: TextField()),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          switch (_index) {
+                            case 0:
+                              //하얀색 Container 속 텍스트 변화
+                              Stopwatch stopwatch = new Stopwatch()..start();
+                              subject.addUpToFirst(10000000);
+                              setState(() {
+                                duration = stopwatch.elapsed;
+                              });
+                              break;
+                            case 1:
+                              //하얀색 Container 속 텍스트 변화
+                              Stopwatch stopwatch = new Stopwatch()..start();
+                              subject.addUpToSecond(10000);
+                              setState(() {
+                                duration = stopwatch.elapsed;
+                              });
+                              break;
+                            default:
+                              break;
+                          }
+                        },
                         child: Text('Plot!'),
                       ),
                     ],
