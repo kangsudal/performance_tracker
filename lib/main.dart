@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController controller = TextEditingController(text: '0');
   Subject subject = Subject();
 
   @override
@@ -151,7 +151,11 @@ class InputContainer extends StatelessWidget {
         Consumer<MyProviderModel>(
           builder: (_, myProviderModel, __) => ElevatedButton(
             onPressed: () {
+              if (controller.text.isEmpty) {
+                controller.text = '0';
+              }
               myProviderModel.fetchN(int.parse(controller.text));
+
               switch (context.read<MyProviderModel>().index) {
                 case 0:
                   //하얀색 Container 속 텍스트 변화
