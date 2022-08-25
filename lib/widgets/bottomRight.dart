@@ -8,15 +8,6 @@ class BottomRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<FlSpot> _lineData = [
-      // FlSpot(n, duration)
-      FlSpot(0, 0.0001),
-      FlSpot(500, 0.0001),
-      FlSpot(1000, 0.01),
-      FlSpot(1500, 5),
-      FlSpot(2000, 100),
-      FlSpot(2500, 50),
-    ];
     return Expanded(
       child: Container(
         color: Colors.white,
@@ -46,11 +37,19 @@ class BottomRight extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 20,
+              flex: 5,
               child: LineChart(
                 LineChartData(
                   lineBarsData: [
-                    LineChartBarData(spots: _lineData),
+                    LineChartBarData(
+                        color: Colors.yellow,
+                        spots: (context
+                            .watch<MyProviderModel>()
+                            .addUpToFirstResultList)),
+                    LineChartBarData(
+                        spots: (context
+                            .watch<MyProviderModel>()
+                            .addUpToSecondResultList)),
                   ], // read about it in the LineChartData section
                 ),
               ),
