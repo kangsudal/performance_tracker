@@ -50,7 +50,18 @@ class BottomRight extends StatelessWidget {
                         spots: (context
                             .watch<MyProviderModel>()
                             .addUpToSecondResultList)),
-                  ], // read about it in the LineChartData section
+                  ],
+                  titlesData: FlTitlesData(
+                    show: true,
+                    // leftTitles: SideTitles(
+                    //   interval: 0.5,
+                    //   reservedSize: 30,
+                    //   showTitles: true,
+                    //   getTitles: (value) {
+                    //     return value.toStringAsFixed(1).toString();
+                    //   },
+                    // ),
+                  ),
                 ),
               ),
             ),
