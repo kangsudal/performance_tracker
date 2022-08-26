@@ -38,29 +38,35 @@ class BottomRight extends StatelessWidget {
             ),
             Expanded(
               flex: 5,
-              child: LineChart(
-                LineChartData(
-                  lineBarsData: [
-                    LineChartBarData(
-                        color: Colors.yellow,
-                        spots: (context
-                            .watch<MyProviderModel>()
-                            .addUpToFirstResultList)),
-                    LineChartBarData(
-                        spots: (context
-                            .watch<MyProviderModel>()
-                            .addUpToSecondResultList)),
-                  ],
-                  titlesData: FlTitlesData(
-                    show: true,
-                    // leftTitles: SideTitles(
-                    //   interval: 0.5,
-                    //   reservedSize: 30,
-                    //   showTitles: true,
-                    //   getTitles: (value) {
-                    //     return value.toStringAsFixed(1).toString();
-                    //   },
-                    // ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: LineChart(
+                  LineChartData(
+                    lineBarsData: [
+                      LineChartBarData(
+                          color: Colors.yellow,
+                          spots: (context
+                              .watch<MyProviderModel>()
+                              .addUpToFirstResultList)),
+                      LineChartBarData(
+                          spots: (context
+                              .watch<MyProviderModel>()
+                              .addUpToSecondResultList)),
+                    ],
+                    titlesData: FlTitlesData(
+                      show: true,
+                      rightTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                      ),
+                      leftTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          getTitlesWidget: leftTitleWidgets,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -70,4 +76,16 @@ class BottomRight extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget leftTitleWidgets(double value, TitleMeta meta) {
+  const style = TextStyle(
+      // color: Color(0xff75729e),
+      // fontWeight: FontWeight.bold,
+      // fontSize: 14,
+      );
+  String text = value.toString();
+  text = text + 'µs';
+
+  return FittedBox(child: Text(text, style: style, textAlign: TextAlign.center),fit: BoxFit.fitWidth,);
 }
