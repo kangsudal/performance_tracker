@@ -1,16 +1,5 @@
-# performance_tracker
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://user-images.githubusercontent.com/32862869/187009639-64d99dab-2fdb-4933-b4de-50975acaf4d0.png)  
+0~n까지 합을 구하는 두가지 방식 비교  
+Big(1)과 Big(n) 시각화 그래프  
+https://kangsudal.tistory.com/entry/Performance-Tracker
