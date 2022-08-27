@@ -57,6 +57,7 @@ class FunctionButtons extends StatelessWidget {
             // print(context.read<MyProviderModel>().index);
           },
           child: Text("addUpToFirst"),
+          style: ElevatedButton.styleFrom(primary: Colors.yellow),
         ),
         ElevatedButton(
           onPressed: () {
@@ -65,6 +66,13 @@ class FunctionButtons extends StatelessWidget {
             // print(context.read<MyProviderModel>().index);
           },
           child: Text("addUpToSecond"),
+          style: ElevatedButton.styleFrom(primary: Colors.cyan),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            context.read<MyProviderModel>().clearChart();
+          },
+          child: Text("clear chart"),
         ),
       ],
     );

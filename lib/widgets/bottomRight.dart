@@ -9,6 +9,7 @@ class BottomRight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 2,
       child: Container(
         color: Colors.white,
         child: Column(
@@ -37,7 +38,7 @@ class BottomRight extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 5,
+              flex: 10,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: LineChart(

@@ -43,4 +43,10 @@ class MyProviderModel with ChangeNotifier {
     index = i;
     notifyListeners();
   }
+
+  void clearChart(){
+    addUpToFirstResultList=[FlSpot(0, 0)];
+    addUpToSecondResultList=[FlSpot(0, 0)];
+    notifyListeners();
+  }
 }
