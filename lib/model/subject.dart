@@ -23,7 +23,7 @@ class Subject {
     return total;
   }
 
-  dynamic addUpToSecond(int n) {
-    return n * (n + 1) / 2;
+  int addUpToSecond(int n) {
+    return (n * (n + 1) / 2).toInt();
   }
 }

@@ -11,45 +11,43 @@ class BottomRight extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Container(
-        color: Colors.white,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: Text('n:${context.watch<MyProviderModel>().n}'),
-            ),
-            Expanded(
-              child:
-                  Text('duration:${context.watch<MyProviderModel>().duration}'),
+              child: Text(
+                  'n: ${context.watch<MyProviderModel>().n}, sum: ${context.watch<MyProviderModel>().sum}'),
             ),
             Expanded(
               child: Text(
-                context
-                    .watch<MyProviderModel>()
-                    .addUpToFirstResultList
-                    .toString(),
+                  'duration: ${context.watch<MyProviderModel>().seconds} μs'),
+            ),
+            Expanded(
+              child: Text(
+                '(n, μs): ${context.watch<MyProviderModel>().addUpToFirstResultList.toString()}',
+                style: TextStyle(color: Colors.amber),
               ),
             ),
             Expanded(
               child: Text(
-                context
-                    .watch<MyProviderModel>()
-                    .addUpToSecondResultList
-                    .toString(),
+                '(n, μs): ${context.watch<MyProviderModel>().addUpToSecondResultList.toString()}',
+                style: TextStyle(color: Colors.deepPurpleAccent),
               ),
             ),
             Expanded(
               flex: 10,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: .0),
                 child: LineChart(
                   LineChartData(
                     lineBarsData: [
                       LineChartBarData(
-                          color: Colors.yellow,
+                          color: Colors.amber,
                           spots: (context
                               .watch<MyProviderModel>()
                               .addUpToFirstResultList)),
                       LineChartBarData(
+                          color: Colors.deepPurpleAccent,
                           spots: (context
                               .watch<MyProviderModel>()
                               .addUpToSecondResultList)),
@@ -88,5 +86,8 @@ Widget leftTitleWidgets(double value, TitleMeta meta) {
   String text = value.toString();
   text = text + 'µs';
 
-  return FittedBox(child: Text(text, style: style, textAlign: TextAlign.center),fit: BoxFit.fitWidth,);
+  return FittedBox(
+    child: Text(text, style: style, textAlign: TextAlign.center),
+    fit: BoxFit.fitWidth,
+  );
 }

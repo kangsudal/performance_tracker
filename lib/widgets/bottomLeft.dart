@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:performance_tracker/model/subject.dart';
 import 'package:performance_tracker/provider.dart';
@@ -16,7 +15,6 @@ class BottomLeft extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Colors.grey,
         child: Padding(
           padding: EdgeInsets.only(top: 20),
           //YELLOWBOX
@@ -41,8 +39,11 @@ class YellowBox extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: LayoutBuilder(
         builder: (context, constraints) {
+          Color borderColor = context.watch<MyProviderModel>().index == 0
+              ? Colors.amber
+              : Colors.deepPurpleAccent;
           return Container(
-            color: Colors.yellow[100],
+            decoration: BoxDecoration(border: Border.all(color: borderColor)),
             width: constraints.maxWidth * 0.9,
             height: constraints.maxHeight * 0.5,
             //CONTENTS

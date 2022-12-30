@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class MyProviderModel with ChangeNotifier {
   int n = 0;
+  int sum = 0;
   Duration duration = Duration();
   double get seconds => duration.inMicroseconds.toDouble();
   //n에 따라 addUpToFirst(int n) 실행하는데 걸린 duration 집합
@@ -47,6 +48,9 @@ class MyProviderModel with ChangeNotifier {
   void clearChart(){
     addUpToFirstResultList=[FlSpot(0, 0)];
     addUpToSecondResultList=[FlSpot(0, 0)];
+    n=0;
+    sum=0;
+    duration=Duration(microseconds: 0);
     notifyListeners();
   }
 }

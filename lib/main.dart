@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController controller = TextEditingController(text: '0');
+  TextEditingController controller = TextEditingController(text: '');
   Subject subject = Subject();
   @override
   void dispose() {
