@@ -37,7 +37,7 @@ class BottomRight extends StatelessWidget {
             Expanded(
               flex: 10,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: .0),
+                padding: const EdgeInsets.only(right: 20.0),
                 child: LineChart(
                   LineChartData(
                     lineBarsData: [

@@ -45,7 +45,7 @@ class YellowBox extends StatelessWidget {
           return Container(
             decoration: BoxDecoration(border: Border.all(color: borderColor)),
             width: constraints.maxWidth * 0.9,
-            height: constraints.maxHeight * 0.5,
+            height: constraints.maxHeight * 0.3,
             //CONTENTS
             child: Contents(subject: subject),
           );
@@ -68,8 +68,8 @@ class Contents extends StatelessWidget {
     return IndexedStack(
       index: context.watch<MyProviderModel>().index,
       children: [
-        Text(subject.str_addUpToFirst),
-        Text(subject.str_addUpToSecond),
+        FittedBox(child: Text(subject.str_addUpToFirst),fit: BoxFit.fitWidth,),
+        FittedBox(child: Text(subject.str_addUpToSecond),fit: BoxFit.fitWidth,),
       ],
     );
   }

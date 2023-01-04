@@ -25,7 +25,7 @@ class Top extends StatelessWidget {
             //Title
             Text(
               "Performance Tracker (Big-O)",
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
             //FunctionButtons
