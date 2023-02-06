@@ -34,7 +34,7 @@ O(1)
 <br/>
 
 ### 구현영상
-https://blog.naver.com/kangsudal-dev
+https://blog.naver.com/kangsudal-dev/223007011284
 <br/>
 <br/>
 
