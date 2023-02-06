@@ -1,8 +1,4 @@
 
-![image](https://user-images.githubusercontent.com/32862869/187009639-64d99dab-2fdb-4933-b4de-50975acaf4d0.png)  
-0~n까지 합을 구하는 두가지 방식 비교  
-O(1)과 O(n) 시각화 그래프  
-https://kangsudal.tistory.com/entry/Performance-Tracker
 
 # Performance Tracker
 
@@ -37,6 +33,9 @@ O(1)
 <br/>
 <br/>
 
+## 구현영상
+https://blog.naver.com/kangsudal-dev/postwrite?categoryNo=8
+
 ### 사용 라이브러리와 주요 함수
 **사용 라이브러리**: `provider`, `fl_chart`
 
@@ -52,6 +51,11 @@ O(1)
           myProviderModel.fetchDuration(stopwatch.elapsed);
 ```
 
+## 결론
+  ![image](https://user-images.githubusercontent.com/32862869/216918099-3b0e697d-2e14-43fd-8e51-93f65476956e.png)
+<br/>
+
+  
 ### 도움받은 글 & 영상
 시간측정: https://stackoverflow.com/questions/16955157/dart-is-there-a-way-to-measure-execution-time-for-a-small-code/16955257
 <br/>
