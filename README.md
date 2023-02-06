@@ -33,8 +33,10 @@ O(1)
 <br/>
 <br/>
 
-## 구현영상
+### 구현영상
 https://blog.naver.com/kangsudal-dev/postwrite?categoryNo=8
+<br/>
+<br/>
 
 ### 사용 라이브러리와 주요 함수
 **사용 라이브러리**: `provider`, `fl_chart`
@@ -52,13 +54,19 @@ https://blog.naver.com/kangsudal-dev/postwrite?categoryNo=8
 ```
 
 ## 결론
-  ![image](https://user-images.githubusercontent.com/32862869/216918099-3b0e697d-2e14-43fd-8e51-93f65476956e.png)
+  <img src="https://user-images.githubusercontent.com/32862869/216918099-3b0e697d-2e14-43fd-8e51-93f65476956e.png" width="500" height="500"/>
+  두번째 코드가 훨씬 빠르다.
+<br/>
 <br/>
 
   
 ### 도움받은 글 & 영상
 시간측정: https://stackoverflow.com/questions/16955157/dart-is-there-a-way-to-measure-execution-time-for-a-small-code/16955257
 <br/>
+<br/>
+  
 그래프: https://youtu.be/eCCFQm83D6M?t=342
 <br/>
+<br/>
+  
 Big O 개념: https://www.udemy.com/course/best-javascript-data-structures/
